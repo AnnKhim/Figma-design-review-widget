@@ -1,0 +1,14 @@
+{
+  "name": "Design Review Widget",
+  "id": "design-review-widget-dev",
+  "api": "1.0.0",
+  "widgetApi": "1.0.0",
+  "editorType": ["figma"],
+  "containsWidget": true,
+  "main": "dist/code.js",
+  "documentAccess": "dynamic-page",
+  "networkAccess": {
+    "allowedDomains": ["none"],
+    "reasoning": ""
+  }
+}

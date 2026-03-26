@@ -1,0 +1,17 @@
+{
+  "name": "figma-design-review-widget",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Figma Widget that reviews all screens inside a section and produces a design score.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "watch": "node scripts/build.mjs --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.123.0",
+    "@figma/widget-typings": "^1.12.1",
+    "esbuild": "^0.25.2",
+    "typescript": "^5.8.2"
+  }
+}
