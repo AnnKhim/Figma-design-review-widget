@@ -774,7 +774,7 @@ function Widget() {
     ],
     ({ propertyName }) => {
       if (propertyName === 'review') {
-        void runReview();
+        return runReview();
       } else if (propertyName === 'all' || propertyName === 'unmet' || propertyName === 'partial' || propertyName === 'met') {
         setActiveTab(propertyName);
       }
@@ -835,9 +835,7 @@ function Widget() {
           fill={COLORS.buttonBg}
           cornerRadius={14}
           padding={{ vertical: 14, horizontal: 18 }}
-          onClick={() => {
-            void runReview();
-          }}
+          onClick={runReview}
         >
           <Text fontSize={14} fontWeight={700} fill={COLORS.buttonText}>
             {reviewState === 'loading' ? 'Reviewing...' : result ? 'Re-review' : 'Review flow'}
