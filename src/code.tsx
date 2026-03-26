@@ -263,8 +263,8 @@ function nearestSection(node: BaseNode | null): SectionNode | null {
   return null;
 }
 
-function getWidgetNode(widgetNodeId: string): WidgetNode | null {
-  const node = figma.getNodeById(widgetNodeId);
+async function getWidgetNode(widgetNodeId: string): Promise<WidgetNode | null> {
+  const node = await figma.getNodeByIdAsync(widgetNodeId);
   return node && node.type === 'WIDGET' ? node : null;
 }
 
@@ -774,19 +774,19 @@ function Widget() {
     ],
     ({ propertyName }) => {
       if (propertyName === 'review') {
-        runReview();
+        void runReview();
       } else if (propertyName === 'all' || propertyName === 'unmet' || propertyName === 'partial' || propertyName === 'met') {
         setActiveTab(propertyName);
       }
     }
   );
 
-  const runReview = () => {
+  const runReview = async () => {
     try {
       setReviewState('loading');
       setErrorMessage('');
 
-      const widgetNode = getWidgetNode(widgetNodeId);
+      const widgetNode = await getWidgetNode(widgetNodeId);
       const section = nearestSection(widgetNode);
       if (!section) {
         throw new Error('Place the widget inside a section to review its flows.');
@@ -835,7 +835,9 @@ function Widget() {
           fill={COLORS.buttonBg}
           cornerRadius={14}
           padding={{ vertical: 14, horizontal: 18 }}
-          onClick={runReview}
+          onClick={() => {
+            void runReview();
+          }}
         >
           <Text fontSize={14} fontWeight={700} fill={COLORS.buttonText}>
             {reviewState === 'loading' ? 'Reviewing...' : result ? 'Re-review' : 'Review flow'}
