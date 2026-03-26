@@ -824,7 +824,7 @@ function Widget() {
       padding={24}
       spacing={24}
     >
-      <AutoLayout direction="horizontal" width="fill-parent" verticalAlignItems="center" horizontalAlignItems="space-between">
+      <AutoLayout direction="horizontal" width="fill-parent" verticalAlignItems="center" spacing="auto">
         <AutoLayout direction="vertical" spacing={6}>
           <Text fontSize={28} fontWeight={700} fill={COLORS.text}>Design review</Text>
           <Text fontSize={14} fill={COLORS.textMuted}>
@@ -920,7 +920,7 @@ function Widget() {
             padding={18}
             spacing={14}
           >
-            <AutoLayout direction="horizontal" width="fill-parent" horizontalAlignItems="space-between">
+            <AutoLayout direction="horizontal" width="fill-parent" spacing="auto">
               <AutoLayout direction="horizontal" spacing={10} verticalAlignItems="center">
                 <AutoLayout width={12} height={12} cornerRadius={4} fill={statusColor(criterion.status)} />
                 <Text fontSize={18} fontWeight={700} fill={COLORS.text}>{criterion.name}</Text>
