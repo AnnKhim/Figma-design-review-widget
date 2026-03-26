@@ -7,7 +7,7 @@ const ctx = await esbuild.context({
   entryPoints: ['src/code.tsx'],
   format: 'iife',
   platform: 'browser',
-  target: ['es2020'],
+  target: ['es2015'],
   outfile: 'dist/code.js',
   jsxFactory: 'figma.widget.h',
   jsxFragment: 'figma.widget.Fragment',

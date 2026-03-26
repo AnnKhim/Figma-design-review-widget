@@ -277,7 +277,12 @@ function makeResult(
 ): CriterionResult {
   const multiplier = status === 'met' ? 1 : status === 'partial' ? 0.5 : 0;
   return {
-    ...definition,
+    id: definition.id,
+    name: definition.name,
+    description: definition.description,
+    importance: definition.importance,
+    weight: definition.weight,
+    category: definition.category,
     status,
     earnedWeight: definition.weight * multiplier,
     summary,
